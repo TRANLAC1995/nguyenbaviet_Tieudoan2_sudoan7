@@ -4,7 +4,12 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="#073b78" name="theme-color"/>
-  <title>
+	 <link rel="manifest" href="./manifest.json">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tiểu đoàn 2">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title> 
    Phòng Hồ Chí Minh - Tiểu đoàn
   </title>
   <style>
@@ -1698,6 +1703,19 @@ music.addEventListener("error", function() {
     musicButton.innerHTML = "❌ Không tìm thấy nhạc";
 });
 </script>
-
+<!-- ĐĂNG KÝ PWA -->
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(function(registration) {
+                console.log("PWA đã đăng ký thành công:", registration.scope);
+            })
+            .catch(function(error) {
+                console.error("Lỗi đăng ký PWA:", error);
+            });
+    });
+}
+</script>
 </body>
 </html>
